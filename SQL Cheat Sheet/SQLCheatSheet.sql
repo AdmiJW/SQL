@@ -15,18 +15,52 @@
 */
 
 ---------------------------------------------------------------------
-----------------CREATING, DELETING A DATABASE------------------------
+----------------BASIC DATABASE OPERATIONS------------------------
 ---------------------------------------------------------------------
 
 /*
-    We create new databases and delete them using:
+    We create new databases 
 
         CREATE DATABASE <dbname>
-        DROP DATABASE   <dbname>
 */
 
 CREATE DATABASE Company;
+
+/*
+    To quickly know the name of database WE ARE CURRENTLY ON, use
+
+            SELECT DATABASE();
+*/
+
+SELECT DATABASE();
+
+/*
+    To see all the tables available in the Database, use
+
+            SHOW TABLES;
+*/
+
+SHOW TABLES;
+
+/*
+    To switch between different databases, use
+
+            USE <database_name>;
+*/
+
+USE Company;        --No difference actually
+
+/*
+    To delete a database, use DROP
+
+            DROP <database_name>;
+*/
+
 DROP DATABASE Company;
+
+
+
+
 
 ---------------------------------------------------------------------
 ----------------CREATING, DELETING A TABLE---------------------------
@@ -35,24 +69,28 @@ DROP DATABASE Company;
 /*
     We create new tables and delete them using:
 
-        CREATE TABLE <tablename> (
-            <fieldname> <type> <constraints>?
-            <fieldname> <type> <constraints>?
-            .
-            .
-        );
+            CREATE TABLE <tablename> (
+                <fieldname> <type> <constraints>?
+                <fieldname> <type> <constraints>?
+                .
+                .
+            );
 
-        DROP TABLE <tablename>; 
+            DROP TABLE <tablename>; 
 
     Where the constraints can be following:
-        >   NOT NULL        (No Null value allowed)
-        >   UNIQUE          (No duplicate values)
-        >   PRIMARY KEY     (Combination of NOT NULL + UNIQUE)
-        >   FOREIGN KEY     (Primary key of another table)
-        >   CHECK           (All values in column must satisfy specific condition)
-        >   DEFAULT         (Default value)
-        >   INDEX           (Create indexing on the field, so it can be retrieved quickly)
-        >   AUTO_INCREMENT  
+            >   NOT NULL        (No Null value allowed)
+            >   UNIQUE          (No duplicate values)
+            >   PRIMARY KEY     (Combination of NOT NULL + UNIQUE)
+            >   FOREIGN KEY     (Primary key of another table)
+            >   CHECK           (All values in column must satisfy specific condition)
+            >   DEFAULT         (Default value)
+            >   INDEX           (Create indexing on the field, so it can be retrieved quickly)
+            >   AUTO_INCREMENT  
+
+    To See Structure of a Table, use
+
+            DESCRIBE <tablename>;
 
 */
 
@@ -65,6 +103,8 @@ CREATE TABLE Employee (
 
     CHECK (age >= 18)
 );
+
+DESCRIBE Employee;
 
 DROP TABLE Employee;
 
